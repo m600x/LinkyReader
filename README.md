@@ -3,6 +3,8 @@ EDF Linky reader for Teleinfo data.
 
 It's only relevant to French people but by habits I'll keep the infos in English. Sorry baguette, i'm still one of yours!
 
+![Schema](pic/pic_or_bs.jpg)
+
 ## Description
 The goal of this code is to read teleinfo data available on the Linky electric counter and display it on the built-in display of a Lilygo T-Display S3.
 
