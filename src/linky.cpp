@@ -15,6 +15,8 @@ int power_tmp = 0;
   Return: true if changed
 */
 bool linkySaveCheck(TempoInt &item, int new_value, bool bypass=false) {
+    if (new_value == 0)
+        return false;
     if (bypass)
         item.value_tmp = new_value;
     if (item.value_tmp == 0) {
@@ -78,9 +80,11 @@ void linkySaver(EDFTempo &data, String code, String value) {
         }
     }
     if (code == data.intensity_max.index && value.length() == 3) {
+        if (linkySaveCheck(data.intensity_max, value.toInt())) {
             int new_value = value.toInt();
             logger("LNKY | Value of [" + data.intensity_max.name + "] has changed from [" + String(data.intensity_max.value) + "] to [" + String(new_value) + "]");
-        linkySaveCheck(data.intensity_max, value.toInt());
+            data.intensity_max.value = new_value;
+        }
     }
 }
 
