@@ -57,7 +57,7 @@ void displayMain(EDFTempo &data, String timestamp) {
     data.img.setTextColor(TFT_DARKGREY);
     data.img.setTextDatum(TC_DATUM);
     data.img.drawString("CONSO INSTANTANEE", 85, 75);
-    data.img.drawString(data.cost_name[data.power_index.value] + ": " + String(data.instant_cost.value) + "e/Kw", 85, 125);
+    data.img.drawString(data.cost_name[data.cost_index.value] + ": " + String(data.instant_cost.value) + "e/Kw", 85, 125);
     data.img.setTextColor(TFT_RED);
     data.img.loadFont(AA_FONT_LARGE);
     data.img.drawString(String(data.power.value) + "W", 85, 90);

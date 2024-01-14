@@ -34,7 +34,8 @@
 #define MQTT_TOPIC_POWER         "edf/consumption/instant/power_watts"   // MQTT topic to send the value from Intensity * voltage (239)
 #define MQTT_TOPIC_IINST         "edf/consumption/instant/intensity"     // MQTT topic to send the Instant intensity
 #define MQTT_TOPIC_IMAX          "edf/consumption/instant/intensity_max" // MQTT topic to send the Max intensity
-#define MQTT_TOPIC_COST_CURRENT  "edf/consumption/instant/current_cost"  // MQTT topic to send the value from cost[power_index] (kWh price)
+#define MQTT_TOPIC_COST_INDEX    "edf/consumption/instant/index_cost"    // MQTT topic to send the Index cost
+#define MQTT_TOPIC_COST_CURRENT  "edf/consumption/instant/current_cost"  // MQTT topic to send the value from cost[cost_index] (kWh price)
 #define MQTT_TOPIC_COST_POWER    "edf/consumption/instant/power_cost"    // MQTT topic to send the value from power * current_cost
 
 #define PIN_BTN_TOP              14                                      // Leave as it for the T-Display S3
@@ -73,12 +74,12 @@ struct EDFTempo {
     TempoInt blue_hp =        {"Bleu HP",        "BBRHPJB",  MQTT_TOPIC_BLUE_HP,       0, 0}; // READING  | Counter of watts in blue HP
     TempoInt white_hp =       {"Blanc HP",       "BBRHPJW",  MQTT_TOPIC_WHITE_HP,      0, 0}; // READING  | Counter of watts in white HP
     TempoInt red_hp =         {"Rouge HP",       "BBRHPJR",  MQTT_TOPIC_RED_HP,        0, 0}; // READING  | Counter of watts in red HP
-    TempoInt power_index =    {"Power index",    "PTEC",     "",                       0, 0}; // COMPUTED | Index for the cost[6] value
     TempoInt power =          {"Power",          "PAPP",     MQTT_TOPIC_PAPP,          0, 0}; // READING  | Instant VA
     TempoInt power_watts =    {"Power Watts",    "",         MQTT_TOPIC_POWER,         0, 0}; // COMPUTED | value from Intensity * voltage (239)
     TempoInt intensity =      {"Intensity",      "IINST",    MQTT_TOPIC_IINST,         0, 0}; // READING  | Instant intensity
     TempoInt intensity_max =  {"Intensity max",  "IMAX",     MQTT_TOPIC_IMAX,          0, 0}; // READING  | Max intensity
-    TempoFloat current_cost = {"Current cost",   "",         MQTT_TOPIC_COST_CURRENT,  0, 0}; // COMPUTED | Value from cost[power_index] (kWh price)
+    TempoInt cost_index =     {"Cost index",     "PTEC",     MQTT_TOPIC_COST_INDEX,    0, 0}; // READING  | Index for the cost[6] value
+    TempoFloat current_cost = {"Current cost",   "",         MQTT_TOPIC_COST_CURRENT,  0, 0}; // COMPUTED | Value from cost[cost_index] (kWh price)
     TempoFloat instant_cost = {"Instant cost",   "",         MQTT_TOPIC_COST_POWER,    0, 0}; // COMPUTED | value from power * current_cost
     int graph[120];
     int graph_max = 0;

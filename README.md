@@ -60,23 +60,24 @@ All configuration are in the file `include/EDF_Teleinfo.h`
 
 ### MQTT specific
 
-|Key||Default value|Description|
-|---|:-:|---|---|
-|`MQTT_SERVER`||`REPLACEME`|IP of the MQTT server|
-|`MQTT_PORT`||`1883`|Port of the MQTT server|
-|`TIMER_MQTT_UPDATE`||`10`|Time in seconds between each MQTT message if active|
-|`MQTT_TOPIC_BLUE_HC`||`edf/consumption/blue/hc`|MQTT topic to send the counter of watts of blue HC
-|`MQTT_TOPIC_WHITE_HC`||`edf/consumption/white/hc`|MQTT topic to send the counter of watts of white HC
-|`MQTT_TOPIC_RED_HC`||`edf/consumption/red/hc`|MQTT topic to send the counter of watts of red HC
-|`MQTT_TOPIC_BLUE_HP`||`edf/consumption/blue/hp`|MQTT topic to send the counter of watts of blue HP
-|`MQTT_TOPIC_WHITE_HP`||`edf/consumption/white/hp`|MQTT topic to send the counter of watts of white HP
-|`MQTT_TOPIC_RED_HP`||`edf/consumption/red/hp`|MQTT topic to send the counter of watts of red HP
-|`MQTT_TOPIC_PAPP`||`edf/consumption/instant/power`|MQTT topic to send the Instant VA
-|`MQTT_TOPIC_POWER`||`edf/consumption/instant/power_watts`|MQTT topic to send the value from Intensity * voltage (239)
-|`MQTT_TOPIC_IINST`||`edf/consumption/instant/intensity`|MQTT topic to send the Instant intensity
-|`MQTT_TOPIC_IMAX`||`edf/consumption/instant/intensity_max`|MQTT topic to send the Max intensity
-|`MQTT_TOPIC_COST_CURRENT`||`edf/consumption/instant/current_cost`|MQTT topic to send the value from cost[power_index] (kWh price)
-|`MQTT_TOPIC_COST_POWER`||`edf/consumption/instant/power_cost`|MQTT topic to send the value from power * current_cost
+|Key|Default value|Linky origin|Description|
+|---|---|---|---|
+|`MQTT_SERVER`|`REPLACEME`||IP of the MQTT server
+|`MQTT_PORT`|`1883`||Port of the MQTT server
+|`TIMER_MQTT_UPDATE`|`10`||Time in seconds between each MQTT message
+|`MQTT_TOPIC_BLUE_HC`|`edf/consumption/blue/hc`|`BBRHCJB`|MQTT topic to send the counter of watts of blue HC
+|`MQTT_TOPIC_WHITE_HC`|`edf/consumption/white/hc`|`BBRHCJW`|MQTT topic to send the counter of watts of white HC
+|`MQTT_TOPIC_RED_HC`|`edf/consumption/red/hc`|`BBRHCJR`|MQTT topic to send the counter of watts of red HC
+|`MQTT_TOPIC_BLUE_HP`|`edf/consumption/blue/hp`|`BBRHPJB`|MQTT topic to send the counter of watts of blue HP
+|`MQTT_TOPIC_WHITE_HP`|`edf/consumption/white/hp`|`BBRHPJW`|MQTT topic to send the counter of watts of white HP
+|`MQTT_TOPIC_RED_HP`|`edf/consumption/red/hp`|`BBRHPJR`|MQTT topic to send the counter of watts of red HP
+|`MQTT_TOPIC_PAPP`|`edf/consumption/instant/power`|`PAPP`|MQTT topic to send the Instant VA
+|`MQTT_TOPIC_POWER`|`edf/consumption/instant/power_watts`||MQTT topic to send the value from `IINST` * voltage (239)
+|`MQTT_TOPIC_IINST`|`edf/consumption/instant/intensity`|`IINST`|MQTT topic to send the Instant intensity
+|`MQTT_TOPIC_IMAX`|`edf/consumption/instant/intensity_max`|`IMAX`|MQTT topic to send the Max intensity
+|`MQTT_TOPIC_COST_INDEX`|`edf/consumption/instant/index_cost`|`PTEC`|MQTT topic to send the Index cost
+|`MQTT_TOPIC_COST_CURRENT`|`edf/consumption/instant/current_cost`||MQTT topic to send the value from cost[cost_index] (kWh price)
+|`MQTT_TOPIC_COST_POWER`|`edf/consumption/instant/power_cost`||MQTT topic to send the value from `PAPP` * current_cost
 
 There's other variable but they are not as important, feel free to check the file.
 

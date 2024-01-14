@@ -136,6 +136,7 @@ void mqttPublisher() {
     mqttPublisherSingle(data.intensity);
     mqttPublisherSingle(data.intensity_max);
     mqttPublisherSingle(data.instant_cost);
+    mqttPublisherSingle(data.cost_index);
     mqttPublisherSingle(data.current_cost);
     mqtt_timer = millis();
     logger("MQTT | End mqttPublisher");

@@ -50,20 +50,20 @@ void linkySaver(EDFTempo &data, String code, String value) {
         linkySaveCheck(data.red_hc, value.toInt(), true);
     if (code == data.red_hp.index && value.length() == 9)
         linkySaveCheck(data.red_hp, value.toInt(), true);
-    if (code == data.power_index.index && value.length() == 4) {
-        if (value[3] == 'B' && value[1] == 'C')
-            data.power_index.value = 0;
-        if (value[3] == 'W' && value[1] == 'C')
-            data.power_index.value = 1;
-        if (value[3] == 'R' && value[1] == 'C')
-            data.power_index.value = 2;
-        if (value[3] == 'B' && value[1] == 'P')
-            data.power_index.value = 3;
-        if (value[3] == 'W' && value[1] == 'P')
-            data.power_index.value = 4;
-        if (value[3] == 'R' && value[1] == 'P')
-            data.power_index.value = 5;
-        data.current_cost.value = data.cost[data.power_index.value];
+    if (code == data.cost_index.index && value.length() == 4) {
+        if (value == "HCJB")
+            data.cost_index.value = 0;
+        if (value == "HCJW")
+            data.cost_index.value = 1;
+        if (value == "HCJR")
+            data.cost_index.value = 2;
+        if (value == "HPJB")
+            data.cost_index.value = 3;
+        if (value == "HPJW")
+            data.cost_index.value = 4;
+        if (value == "HPJR")
+            data.cost_index.value = 5;
+        data.current_cost.value = data.cost[data.cost_index.value];
     }
     if (code == data.power.index && (value.length() == 4 || value.length() == 5)) {
         if (linkySaveCheck(data.power, value.toInt())) {
